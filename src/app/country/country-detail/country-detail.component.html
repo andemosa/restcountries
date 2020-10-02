@@ -1,0 +1,69 @@
+<div class="detail-body">
+  <button class="btn btn-outline-secondary back" (click)="toHome()">
+    <i class="fas fa-long-arrow-alt-left"></i>
+    Back
+  </button>
+  <div class="body-wrapper">
+    <div class="img-container">
+      <img
+        class="card-img-top"
+        src="{{ country.flag }}"
+        alt="{{ country.altText }}"
+      />
+    </div>
+
+    <div class="details">
+      <div class="card-body">
+        <div class="right">
+          <h5 class="card-title">{{ country.name }}</h5>
+          <p class="card-text">
+            Native Name: <span class="text">{{ country.nativeName }}</span>
+          </p>
+          <p class="card-text">
+            Population:
+            <span class="text">{{ country.population | number }}</span>
+          </p>
+          <p class="card-text">
+            Region: <span class="text">{{ country.region }}</span>
+          </p>
+          <p class="card-text">
+            Sub Region: <span class="text">{{ country.subregion }}</span>
+          </p>
+          <p class="card-text">
+            Capital: <span class="text">{{ country.capital }}</span>
+          </p>
+        </div>
+
+        <br /><br />
+
+        <div class="side-bar">
+          <p class="card-text">
+            Top Level Domain:
+            <span class="text">{{ country.topLevelDomain }}</span>
+          </p>
+          <p class="card-text">
+            Currencies:
+            <span class="text">{{ country.currencies[0].name }}</span>
+          </p>
+          <p class="card-text">
+            Languages:
+            <span *ngFor="let language of country.languages" class="text"
+              >{{ language.name }}<span>&nbsp;</span></span
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="title" *ngIf="loaded">
+        Border Countries: &nbsp;
+        <button
+          [routerLink]="['/countries', border.name]"
+          *ngFor="let border of borderlist"
+          class="btn btn-outline-secondary custom"
+        >
+          {{ border.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

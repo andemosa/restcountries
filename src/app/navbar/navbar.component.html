@@ -1,0 +1,26 @@
+<header
+  class="header"
+  [ngClass]="{
+    dark: darkMode
+  }"
+>
+  <div class="header-container">
+    <div>Where in the world?</div>
+    <div class="mode">
+      <i class="fas fa-moon"></i>
+      <button *ngIf="!darkMode" class="toggle" (click)="toggleMode()">
+        Dark Mode
+      </button>
+      <button
+        [ngClass]="{
+          dark: darkMode
+        }"
+        *ngIf="darkMode"
+        class="toggle"
+        (click)="toggleMode()"
+      >
+        Light Mode
+      </button>
+    </div>
+  </div>
+</header>

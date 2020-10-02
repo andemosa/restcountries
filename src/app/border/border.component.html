@@ -1,0 +1,10 @@
+<div>
+  Border Countries: &nbsp;
+  <button
+    [routerLink]="['/countries', border[0].name]"
+    *ngFor="let border of borderlist"
+    class="btn btn-outline-secondary custom"
+  >
+    {{ border[0].name }}
+  </button>
+</div>
